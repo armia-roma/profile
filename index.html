@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Armia | Portfolio</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+
+		<style>
+			body {
+				font-family: "Poppins", Arial, sans-serif;
+				margin: 0;
+				background-color: #f9f9f9;
+				color: #333;
+				line-height: 1.6;
+			}
+			header,
+			section {
+				max-width: 800px;
+				margin: auto;
+				padding: 40px 20px;
+			}
+			h1,
+			h2 {
+				color: #111;
+			}
+			.projects {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 20px;
+			}
+			.card {
+				background-color: white;
+				padding: 20px;
+				border-radius: 10px;
+				cursor: pointer;
+				transition: transform 0.2s ease;
+			}
+			.card:hover {
+				transform: translateY(-5px);
+			}
+			.porject-card-img {
+				width: 100%;
+				border-radius: 8px;
+				margin-bottom: 15px;
+				height: 200px; /* You can adjust this height */
+				object-fit: cover;
+			}
+			.skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+			.skill {
+				background-color: #eee;
+				padding: 8px 12px;
+				border-radius: 20px;
+			}
+			footer {
+				text-align: center;
+				padding: 20px;
+			}
+			/* Modal styles */
+			.modal {
+				display: none;
+				position: fixed;
+				inset: 0;
+				z-index: 999;
+			}
+
+			.modal-backdrop {
+				position: absolute;
+				inset: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+			.modal-wrapper {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				max-height: 100vh;
+				box-sizing: border-box;
+			}
+
+			.modal-content {
+				background-color: white;
+				width: 100%;
+				max-width: 600px;
+				border-radius: 12px;
+				padding: 0px 100px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+				position: relative;
+				overflow-y: auto;
+				max-height: 80vh; /* keep some space on top and bottom */
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+			.close {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				background-color: silver;
+				color: #000000;
+				position: absolute;
+				right: 15px;
+				top: 10px;
+				font-size: 20px;
+				cursor: pointer;
+				border-radius: 30px;
+			}
+			.modal-card-image {
+				width: 100%;
+				border-radius: 8px;
+				margin-bottom: 15px;
+				padding: auto;
+			}
+			.modal-card-image:hover {
+				cursor: pointer;
+				transform: scale(1.05);
+				transition: transform 0.2s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Hi, I'm Armia</h1>
+			<p>
+				I’m a curious, driven developer who enjoys building real-world
+				projects and solving meaningful problems. I love learning and
+				working at the intersection of tech and business.
+			</p>
+		</header>
+
+		<section>
+			<h2>What I Do</h2>
+			<p>
+				I focus on building useful, smart web and mobile apps. I work
+				across frontend and backend development using modern stacks like
+				React, Node.js, and databases. I enjoy clean design, code
+				quality, and performance.
+			</p>
+		</section>
+
+		<section>
+			<h2>Recent Work</h2>
+			<div class="projects">
+				<div class="card" onclick="openModal('modal1')">
+					<h3>Project Alpha</h3>
+					<img src="new.png" alt="" class="porject-card-img" />
+					<p>A full-stack web app for managing tasks and notes.</p>
+				</div>
+				<div class="card" onclick="openModal('restaurant-modal')">
+					<h3>Mobile Tracker</h3>
+					<img
+						src="restaurant-1.jpg"
+						alt=""
+						class="porject-card-img"
+					/>
+					<p>A React Native app for location tracking and alerts.</p>
+				</div>
+				<div class="card" onclick="openModal('modal2')">
+					<h3>Mobile Tracker</h3>
+					<p>A React Native app for location tracking and alerts.</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Skills</h2>
+			<div class="skills">
+				<div class="skill">JavaScript</div>
+				<div class="skill">TypeScript</div>
+				<div class="skill">React</div>
+				<div class="skill">React Native</div>
+				<div class="skill">Node.js</div>
+				<div class="skill">Express</div>
+				<div class="skill">MongoDB</div>
+				<div class="skill">PostgreSQL</div>
+				<div class="skill">Git</div>
+				<div class="skill">REST APIs</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Contact</h2>
+			<p>
+				Let's connect:
+				<a href="mailto:armiageorge249@gmail.com"
+					>armiageorge249@gmail.com</a
+				>
+			</p>
+			<p>
+				<i class="fab fa-github"></i>
+				<a href="https://github.com/armia-roma"
+					>https://github.com/armia-roma</a
+				>
+			</p>
+		</section>
+
+		<footer>
+			<p>© 2025 Armia George</p>
+		</footer>
+
+		<!-- Modals -->
+		<div id="modal1" class="modal">
+			<div class="modal-backdrop" onclick="closeModal('modal1')"></div>
+			<div class="modal-wrapper">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal1')"
+						>&times;</span
+					>
+					<!-- food-order -->
+					<h2>Food Order</h2>
+					<!-- Description -->
+					<p>
+						This is a web app built with React + Node.js + MongoDB.
+						It helps users track their tasks and save notes, with
+						authentication, live updates, and responsive design.
+					</p>
+
+					<!-- Tags / Skills Used -->
+					<div style="margin-top: 10px; margin-bottom: 15px">
+						<span class="skill">React</span>
+						<span class="skill">Node.js</span>
+						<span class="skill">MongoDB</span>
+					</div>
+
+					<!-- Project Link -->
+					<a
+						href="https://github.com/yourusername/project-alpha"
+						target="_blank"
+						style="color: #007bff; text-decoration: none"
+						>🔗 View Project</a
+					>
+					<!-- Project Image -->
+					<div>
+						<img
+							src="foodorder2.png"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="new.png"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="12.webp"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="4.webp"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="restaurant-modal" class="modal">
+			<div
+				class="modal-backdrop"
+				onclick="closeModal('restaurant-modal')"
+			></div>
+			<div class="modal-wrapper">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('restaurant-modal')"
+						>&times;</span
+					>
+					<!-- restaurant -->
+					<h2>Restaurant</h2>
+					<!-- Description -->
+					<p>
+						In-Room Dining Platform enhances the hotel dining
+						experience by allowing guests to browse restaurant
+						categories, explore menu items, and add selections to
+						their cart. Users can seamlessly place orders from their
+						rooms, ensuring a convenient and efficient dining
+						experience. The system supports real-time menu updates,
+						and smooth order processing, making it an essential
+						solution for hotel and hospitality services.
+					</p>
+
+					<!-- Tags / Skills Used -->
+					<div style="margin-top: 10px; margin-bottom: 15px">
+						<span class="skill">React</span>
+						<span class="skill">Tailwind Css</span>
+						<span class="skill">Node.js</span>
+						<span class="skill">MongoDB</span>
+					</div>
+
+					<!-- Project Link -->
+					<a
+						href="https://restaurant-two-orpin.vercel.app/categories"
+						target="_blank"
+						style="color: #007bff; text-decoration: none"
+						>🔗 View Project</a
+					>
+					<!-- Project Image -->
+					<div>
+						<img
+							src="restaurant-1.jpg"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+
+					<div>
+						<img
+							src="restaurant-3.png"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="restaurant-4.png"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="restaurant-5.png"
+							alt="Project Alpha Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal('modal2')"
+					>&times;</span
+				>
+				<h2>Mobile Tracker</h2>
+				<p>
+					This app is built with React Native. It tracks user
+					locations, shows routes on a map, and sends alerts when
+					entering/exiting predefined zones. Works with GPS and
+					Firebase.
+				</p>
+			</div>
+		</div>
+		<!-- Image Preview Modal -->
+		<div id="imagePreviewModal" class="modal">
+			<div class="modal-backdrop" onclick="closeImagePreview()"></div>
+			<div class="modal-wrapper">
+				<div class="modal-content" style="max-width: 90%; padding: 0">
+					<span class="close" onclick="closeImagePreview()"
+						>&times;</span
+					>
+					<img
+						id="previewImage"
+						src=""
+						alt="Preview"
+						style="width: 100%; height: auto; border-radius: 10px"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function openModal(id) {
+				const modal = document.getElementById(id);
+				modal.style.display = "flex"; // Use flex for centering
+
+				// Optional: You can add more inline styles here
+				modal.style.justifyContent = "center";
+				modal.style.alignItems = "center";
+			}
+
+			function closeModal(id) {
+				console.log("Closing modal with ID:", id);
+				document.getElementById(id).style.display = "none";
+			}
+
+			window.onclick = function (e) {
+				if (e.target.classList.contains("modal")) {
+					e.target.style.display = "none";
+				}
+			};
+			function previewImage(src) {
+				const modal = document.getElementById("imagePreviewModal");
+				const image = document.getElementById("previewImage");
+				image.src = src;
+				modal.style.display = "flex";
+				modal.style.justifyContent = "center";
+				modal.style.alignItems = "center";
+			}
+
+			function closeImagePreview() {
+				document.getElementById("imagePreviewModal").style.display =
+					"none";
+			}
+		</script>
+	</body>
+</html>
