@@ -25,7 +25,7 @@
 			section {
 				max-width: 800px;
 				margin: auto;
-				padding: 40px 20px;
+				padding: 10px 20px;
 			}
 			h1,
 			h2 {
@@ -35,6 +35,11 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 20px;
+			}
+			@media (max-width: 768px) {
+				.projects {
+					grid-template-columns: 1fr;
+				}
 			}
 			.card {
 				background-color: white;
@@ -94,7 +99,7 @@
 				width: 100%;
 				max-width: 600px;
 				border-radius: 12px;
-				padding: 0px 100px;
+				padding: 20px 100px;
 				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 				position: relative;
 				overflow-y: auto;
@@ -102,6 +107,11 @@
 				display: flex;
 				flex-direction: column;
 				gap: 10px;
+			}
+			@media (max-width: 600px) {
+				.modal-content {
+					padding: 20px; /* or 15px if you prefer tighter space */
+				}
 			}
 			.close {
 				display: inline-block;
@@ -122,11 +132,25 @@
 				border-radius: 8px;
 				margin-bottom: 15px;
 				padding: auto;
+				height: 400px; /* You can adjust this height */
+				object-fit: scale-down;
+				transition: transform 0.2s ease;
 			}
 			.modal-card-image:hover {
 				cursor: pointer;
 				transform: scale(1.05);
 				transition: transform 0.2s ease;
+			}
+			.modal-content h2 {
+				margin-bottom: 0;
+			}
+			.modal-content p {
+				margin: 0 0;
+			}
+			@media (max-width: 600px) {
+				.modal-card-image {
+					height: auto; /* Adjust height for smaller screens */
+				}
 			}
 		</style>
 	</head>
@@ -153,23 +177,50 @@
 		<section>
 			<h2>Recent Work</h2>
 			<div class="projects">
-				<div class="card" onclick="openModal('modal1')">
-					<h3>Project Alpha</h3>
-					<img src="new.png" alt="" class="porject-card-img" />
-					<p>A full-stack web app for managing tasks and notes.</p>
-				</div>
 				<div class="card" onclick="openModal('restaurant-modal')">
-					<h3>Mobile Tracker</h3>
+					<h3>Restaurant</h3>
 					<img
 						src="restaurant-1.jpg"
 						alt=""
 						class="porject-card-img"
 					/>
-					<p>A React Native app for location tracking and alerts.</p>
+					<p>
+						A React app that allows customers to scan a QR code,
+						browse the menu, and place orders .
+					</p>
 				</div>
-				<div class="card" onclick="openModal('modal2')">
-					<h3>Mobile Tracker</h3>
-					<p>A React Native app for location tracking and alerts.</p>
+				<!-- kyc card to -->
+				<div class="card" onclick="openModal('kyc')">
+					<h3>Kyc</h3>
+					<img src="kyc-2.png" alt="" class="porject-card-img" />
+					<p>
+						KYC (Know Your Customer) application that helps
+						businesses verify their users.
+					</p>
+				</div>
+				<!-- key card to -->
+				<div class="card" onclick="openModal('key-one')">
+					<h3>Key One</h3>
+					<img src="key1.png" alt="" class="porject-card-img" />
+					<p>
+						showcase land properties with a built-in lead form help
+						interested buyers reach out easily.
+					</p>
+				</div>
+				<div class="card" onclick="openModal('tow')">
+					<h3>Towing</h3>
+					<img src="towing1.png" alt="" class="porject-card-img" />
+					<p>
+						towing service app that helps users request roadside
+						assistance.
+					</p>
+				</div>
+				<div class="card" onclick="openModal('modal1')">
+					<h3>Food Order</h3>
+					<img src="new.png" alt="" class="porject-card-img" />
+					<p>
+						A full-stack web app for managing Orders and Delivery.
+					</p>
 				</div>
 			</div>
 		</section>
@@ -179,12 +230,14 @@
 			<div class="skills">
 				<div class="skill">JavaScript</div>
 				<div class="skill">TypeScript</div>
+				<div class="skill">Vue</div>
+				<div class="skill">Vuetify</div>
 				<div class="skill">React</div>
 				<div class="skill">React Native</div>
 				<div class="skill">Node.js</div>
 				<div class="skill">Express</div>
 				<div class="skill">MongoDB</div>
-				<div class="skill">PostgreSQL</div>
+				<div class="skill">Mysql</div>
 				<div class="skill">Git</div>
 				<div class="skill">REST APIs</div>
 			</div>
@@ -199,9 +252,19 @@
 				>
 			</p>
 			<p>
+				<i class="fas fa-phone"></i>
+				<a href="tel:+971557161304">+971557161304</a>
+			</p>
+			<p>
 				<i class="fab fa-github"></i>
 				<a href="https://github.com/armia-roma"
 					>https://github.com/armia-roma</a
+				>
+			</p>
+			<p>
+				<i class="fab fa-linkedin-in"></i>
+				<a href="https://www.linkedin.com/in/armia-habib/"
+					>https://www.linkedin.com/in/armia-habib/</a
 				>
 			</p>
 		</section>
@@ -223,12 +286,12 @@
 					<!-- Description -->
 					<p>
 						This is a web app built with React + Node.js + MongoDB.
-						It helps users track their tasks and save notes, with
-						authentication, live updates, and responsive design.
+						It helps users track their orders , with authentication,
+						live updates, and responsive design.
 					</p>
 
 					<!-- Tags / Skills Used -->
-					<div style="margin-top: 10px; margin-bottom: 15px">
+					<div class="skills">
 						<span class="skill">React</span>
 						<span class="skill">Node.js</span>
 						<span class="skill">MongoDB</span>
@@ -302,7 +365,7 @@
 					</p>
 
 					<!-- Tags / Skills Used -->
-					<div style="margin-top: 10px; margin-bottom: 15px">
+					<div class="skills">
 						<span class="skill">React</span>
 						<span class="skill">Tailwind Css</span>
 						<span class="skill">Node.js</span>
@@ -354,18 +417,215 @@
 			</div>
 		</div>
 
-		<div id="modal2" class="modal">
+		<div id="kyc" class="modal">
 			<div class="modal-content">
-				<span class="close" onclick="closeModal('modal2')"
+				<span class="close" onclick="closeModal('kyc')">&times;</span>
+				<h2>Kyc</h2>
+				<p>
+					KYC Management System streamlines user verification by
+					allowing individuals to register, submit KYC documents, and
+					track approval status. Users can create a KYC profile and
+					await approval or rejection. Only admin users have the
+					authority to review applications, approve/reject KYC
+					submissions, view reports, and manage the KYC list. The
+					system ensures secure identity verification and compliance
+					with regulatory standards.
+				</p>
+				<div style="margin-top: 10px; margin-bottom: 15px">
+					<span class="skill">Vue Js</span>
+					<span class="skill">Vuetify</span>
+					<span class="skill">Node.js</span>
+					<span class="skill">Express.js</span>
+
+					<span class="skill">MongoDB</span>
+				</div>
+				<div>
+					<i class="fab fa-github"></i>
+					<a href="https://github.com/armia-roma/kyc-backend"
+						>https://github.com/armia-roma/kyc-backend</a
+					>
+					<div>
+						<i class="fab fa-github"></i>
+						<a href="https://github.com/armia-roma/kyc-frontend"
+							>https://github.com/armia-roma/kyc-frontend</a
+						>
+					</div>
+				</div>
+				<div>
+					<img
+						src="kyc-2.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="kyc-3.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="kyc-1.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+			</div>
+		</div>
+		<div id="key-one" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal('key-one')"
 					>&times;</span
 				>
-				<h2>Mobile Tracker</h2>
+				<h2>KEY ONE</h2>
 				<p>
-					This app is built with React Native. It tracks user
-					locations, shows routes on a map, and sends alerts when
-					entering/exiting predefined zones. Works with GPS and
-					Firebase.
+					Property Management Platform simplifies real estate listings
+					and lead generation. Users can explore properties, submit
+					inquiries, and connect with agents via an intuitive landing
+					page. Each listing includes images, descriptions, pricing,
+					and agent details, ensuring seamless navigation and
+					efficient communication. The platform enhances property
+					visibility and streamlines lead management for real estate
+					professionals.
 				</p>
+				<div class="skills">
+					<span class="skill">Next js</span>
+					<span class="skill">Vuetify</span>
+					<span class="skill">Node.js</span>
+					<span class="skill">Express.js</span>
+
+					<span class="skill">MongoDB</span>
+				</div>
+				<div>
+					<i class="fa fa-link"></i>
+					<a href="https://holiday-frontend-liart.vercel.app/"
+						>https://holiday-frontend-liart.vercel.app</a
+					>
+				</div>
+				<div>
+					<img
+						src="key1.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="key2.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="key3.webp"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="key4.webp"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+			</div>
+		</div>
+		<div id="tow" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal('tow')">&times;</span>
+				<h2>Towing</h2>
+				<p>
+					A smart towing request platform that helps users get quick
+					roadside help by connecting them to nearby service providers
+					in real time.
+				</p>
+				<div class="skills">
+					<span class="skill">React</span>
+					<span class="skill">Tailwind css</span>
+					<span class="skill">React Native</span>
+					<span class="skill">Laravel</span>
+					<span class="skill">Mysql</span>
+				</div>
+				<div>
+					<i class="fab fa-github"></i>
+					<a href="https://github.com/armia-roma/kyc-backend"
+						>https://github.com/armia-roma/kyc-backend</a
+					>
+					<div>
+						<i class="fab fa-github"></i>
+						<a href="https://github.com/armia-roma/kyc-frontend"
+							>https://github.com/armia-roma/kyc-frontend</a
+						>
+					</div>
+				</div>
+
+				<div>
+					<img
+						src="login.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="tow5.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="towing1.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="towing3.png"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="ta2.jpeg"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="ta3.jpeg"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
+				<div>
+					<img
+						src="ta1.jpeg"
+						alt="Project Alpha Screenshot"
+						class="modal-card-image"
+						onclick="previewImage(this.src)"
+					/>
+				</div>
 			</div>
 		</div>
 		<!-- Image Preview Modal -->
