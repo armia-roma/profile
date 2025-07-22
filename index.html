@@ -3,7 +3,19 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Armia - Full Stack Developer Portfolio"
+		/>
+		<meta
+			name="keywords"
+			content="JavaScript, React, Node.js, Full Stack Developer"
+		/>
+		<meta name="author" content="Armia" />
+
 		<title>Armia | Portfolio</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="32.png" type="image/png" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
 			rel="stylesheet"
@@ -12,7 +24,6 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
-
 		<style>
 			body {
 				font-family: "Poppins", Arial, sans-serif;
@@ -152,6 +163,37 @@
 					height: auto; /* Adjust height for smaller screens */
 				}
 			}
+			.github-links {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				font-family: "Segoe UI", sans-serif;
+			}
+
+			.github-item {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 16px;
+				color: #333;
+				transition: color 0.3s ease;
+			}
+
+			.github-item i {
+				color: #000;
+				font-size: 18px;
+			}
+
+			.github-item a {
+				text-decoration: none;
+				color: #0366d6;
+				word-break: break-all;
+			}
+
+			.github-item a:hover {
+				color: #023e8a;
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 	<body>
@@ -168,25 +210,18 @@
 			<h2>What I Do</h2>
 			I work on both the frontend and backend. Some of my work includes:
 			<ul>
-				<li>
-					Developed user-friendly interfaces integrated backend APIs
-				</li>
-				<li>
-					Built features by integrating with third-party platforms
-					such as Google Maps
-				</li>
-				<li>Created responsive designs that work on all devices</li>
-				<li>Implemented state management with tools</li>
-				<li>Used React Query for efficient data fetching</li>
-				<li>Built RESTful APIs</li>
-				<li>Worked with databases like MongoDB and MySQL</li>
-				<li>Developed mobile apps with React Native</li>
-				<li>
-					Created reusable components for better code organization
-				</li>
-				<li>Ensured code quality with Git and version control</li>
-				<li>Collaborated with teams to deliver projects on time</li>
-				<li>Focused on performance and user experience</li>
+				<li>Frontend and backend integration</li>
+				<li>Responsive design for all devices</li>
+				<li>Google Maps and third-party services</li>
+				<li>State management with Zustand and Vuex</li>
+				<li>Data fetching with React Query</li>
+				<li>REST API development</li>
+				<li>MongoDB and MySQL database work</li>
+				<li>Mobile apps with React Native</li>
+				<li>Reusable components</li>
+				<li>Version control with Git</li>
+				<li>Team collaboration</li>
+				<li>User experience and performance focus</li>
 			</ul>
 		</section>
 
@@ -231,7 +266,7 @@
 					<img src="game-hub.png" alt="" class="porject-card-img" />
 					<p>
 						A responsive React app to browse and filter games by
-						category,
+						category.
 					</p>
 				</div>
 				<div class="card" onclick="openModal('tow')">
@@ -266,14 +301,14 @@
 			<div class="skills">
 				<div class="skill">JavaScript</div>
 				<div class="skill">TypeScript</div>
-				<div class="skill">Vue</div>
+				<div class="skill">Vue.js</div>
 				<div class="skill">Vuetify</div>
 				<div class="skill">React</div>
 				<div class="skill">React Native</div>
 				<div class="skill">Node.js</div>
 				<div class="skill">Express</div>
 				<div class="skill">MongoDB</div>
-				<div class="skill">Mysql</div>
+				<div class="skill">MySQL</div>
 				<div class="skill">Git</div>
 				<div class="skill">REST APIs</div>
 			</div>
@@ -400,7 +435,7 @@
 					<!-- Tags / Skills Used -->
 					<div class="skills">
 						<span class="skill">React</span>
-						<span class="skill">Tailwind Css</span>
+						<span class="skill">Tailwind CSS</span>
 						<span class="skill">Node.js</span>
 						<span class="skill">MongoDB</span>
 					</div>
@@ -465,7 +500,7 @@
 					with regulatory standards.
 				</p>
 				<div class="skills">
-					<span class="skill">Vue Js</span>
+					<span class="skill">Vue.js</span>
 					<span class="skill">Vuetify</span>
 					<span class="skill">Node.js</span>
 					<span class="skill">Express.js</span>
@@ -518,7 +553,7 @@
 				<span class="close" onclick="closeModal('key-one')"
 					>&times;</span
 				>
-				<h2>KEY ONE</h2>
+				<h2>Key One</h2>
 				<p>
 					Property Management Platform simplifies real estate listings
 					and lead generation. Users can explore properties, submit
@@ -591,25 +626,29 @@
 				</p>
 				<div class="skills">
 					<span class="skill">React</span>
-					<span class="skill">Tailwind css</span>
+					<span class="skill">Tailwind CSS</span>
 					<span class="skill">React Native</span>
 					<span class="skill">Laravel</span>
-					<span class="skill">Mysql</span>
+					<span class="skill">MySQL</span>
 				</div>
-				<div>
-					<i class="fab fa-github"></i>
-					<a
-						target="_blank"
-						href="https://github.com/armia-roma/kyc-backend"
-						>https://github.com/armia-roma/kyc-backend</a
-					>
-					<div>
+				<div class="github-links">
+					<div class="github-item">
 						<i class="fab fa-github"></i>
 						<a
 							target="_blank"
-							href="https://github.com/armia-roma/kyc-frontend"
-							>https://github.com/armia-roma/kyc-frontend</a
+							href="https://github.com/armia-roma/Tareeqk-backend"
 						>
+							Backend Repo
+						</a>
+					</div>
+					<div class="github-item">
+						<i class="fab fa-github"></i>
+						<a
+							target="_blank"
+							href="https://github.com/armia-roma/Tareeqk-frontend"
+						>
+							Frontend Repo
+						</a>
 					</div>
 				</div>
 
@@ -748,7 +787,7 @@
 
 					<!-- Tags / Skills Used -->
 					<div class="skills">
-						<span class="skill">Vue</span>
+						<span class="skill">Vue.js</span>
 						<span class="skill">Vuetify</span>
 						<span class="skill">Vuex</span>
 						<span class="skill">Bootstrap</span>
