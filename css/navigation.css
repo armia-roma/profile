@@ -78,6 +78,10 @@
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -110,5 +114,12 @@
 
     .nav-toggle.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Extra spacing for very small mobile screens */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: var(--spacing-sm) var(--spacing-lg);
     }
 }
