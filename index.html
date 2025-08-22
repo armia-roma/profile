@@ -25,6 +25,12 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
 		<style>
+		* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 			body {
 				font-family: "Poppins", Arial, sans-serif;
 				margin: 0;
@@ -360,6 +366,279 @@
 			body.modal-open {
 				overflow: hidden;
 			}
+			@keyframes slide {
+			from {
+			transform: translateX(0);
+			}
+			to {
+			transform: translateX(-100%);
+			}
+			}
+
+			.logos {
+			overflow: hidden;
+			padding: 60px 0;
+			background: white;
+			white-space: nowrap;
+			position: relative;
+			}
+
+			.logos:before,
+			.logos:after {
+			position: absolute;
+			top: 0;
+			width: 250px;
+			height: 100%;
+			content: "";
+			z-index: 2;
+			}
+
+			.logos:before {
+			left: 0;
+			background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+			}
+
+			.logos:after {
+			right: 0;
+			background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+			}
+
+			.logos:hover .logos-slide {
+			animation-play-state: paused;
+			}
+
+			.logos-slide {
+				display: inline-block;
+				animation: 105s slide infinite linear;
+			}
+
+			.logos-slide:nth-child(2) {
+				animation-delay: -1s;
+			}
+
+			.logos-slide img {
+			height: 50px;
+			margin: 0 40px;
+			}
+			.section-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .section-header::after {
+        width: 60px;
+        height: 3px;
+    }
+}
+.contact-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 80px 20px;
+    margin-top: 40px;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+    border-color: #3b82f6;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.contact-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    word-break: break-word;
+}
+
+.contact-link:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+.contact-cta {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.footer {
+    background: #0f172a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-content p {
+    margin: 0;
+    color: #94a3b8;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social {
+    width: 40px;
+    height: 40px;
+    background: #1e293b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 20px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-cta {
+        padding: 30px 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 		</style>
 	</head>
 	<body>
@@ -444,7 +723,7 @@
 		</div>
 	</section>
 		<section>
-			<h2>Recent Work</h2>
+			<h2 class="section-header">Recent Work</h2>
 			<div class="projects">
 				<div class="card" onclick="openModal('pokemon-modal')">
 					<h3>Pokémon</h3>
@@ -522,54 +801,117 @@
 		</section>
 
 		<section>
-			<h2>Skills</h2>
-			<div class="skills">
-				<div class="skill">JavaScript</div>
-				<div class="skill">TypeScript</div>
-				<div class="skill">Vue.js</div>
-				<div class="skill">Vuetify</div>
-				<div class="skill">React</div>
-				<div class="skill">React Native</div>
-				<div class="skill">Node.js</div>
-				<div class="skill">Express</div>
-				<div class="skill">MongoDB</div>
-				<div class="skill">MySQL</div>
-				<div class="skill">Git</div>
-				<div class="skill">REST APIs</div>
-			</div>
+			<h2 class="section-header">Skills</h2>
+			
 		</section>
+		<div class="logos">
+            <div class="logos-slide">
+                <img src="./logos/angular.svg" />
+                <img src="./logos/html5.svg" />
+                <img src="./logos/css3.svg" />
+                <img src="./logos/javascript.svg" />
+                <img src="./logos/npm.svg" />
+                <img src="./logos/nodejs.svg" />
+                <img src="./logos/React.svg" />
+                <img src="./logos/next.js.svg" />
+                <img src="./logos/ts.svg" />
+                <img src="./logos/vuejs.svg" />
+            </div>
 
-		<section>
-			<h2>Contact</h2>
-			<p>
-				Let's connect:
-				<a href="mailto:armiageorge249@gmail.com"
-					>armiageorge249@gmail.com</a
-				>
-			</p>
-			<p>
-				<i class="fas fa-phone"></i>
-				<a href="tel:+971557161304">+971557161304</a>
-			</p>
-			<p>
-				<i class="fab fa-github"></i>
-				<a href="https://github.com/armia-roma"
-					>https://github.com/armia-roma</a
-				>
-			</p>
-			<p>
-				<i class="fab fa-linkedin-in"></i>
-				<a
-					target="_blank"
-					href="https://www.linkedin.com/in/armia-habib/"
-					>https://www.linkedin.com/in/armia-habib/</a
-				>
-			</p>
-		</section>
+            <div class="logos-slide">
+                <img src="./logos/angular.svg" />
+                <img src="./logos/html5.svg" />
+                <img src="./logos/css3.svg" />
+                <img src="./logos/javascript.svg" />
+                <img src="./logos/npm.svg" />
+                <img src="./logos/nodejs.svg" />    
+                <img src="./logos/React.svg" />
+                <img src="./logos/next.js.svg" />
+                <img src="./logos/ts.svg" />
+                <img src="./logos/vuejs.svg" />
+            </div>
+        </div>
+		<section class="contact-section">
+    <div class="contact-container">
+        <h2 class="section-header">Let's Work Together</h2>
+        <p class="contact-intro">
+            Ready to bring your ideas to life? I'm always open to discussing new opportunities, 
+            creative projects, or just having a friendly chat about technology.
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>Email Me</h3>
+                    <a href="mailto:armiageorge249@gmail.com" class="contact-link">
+                        armiageorge249@gmail.com
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>Call Me</h3>
+                    <a href="tel:+971557161304" class="contact-link">
+                        +971 55 716 1304
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/armia-roma" target="_blank" class="contact-link">
+                        armia-roma
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/armia-habib/" target="_blank" class="contact-link">
+                        armia-habib
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-cta">
+            <p class="cta-text">Prefer to reach out directly?</p>
+            <a href="mailto:armiageorge249@gmail.com" class="cta-button">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+            </a>
+        </div>
+    </div>
+</section>
 
-		<footer>
-			<p>© 2025 Armia George</p>
-		</footer>
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Armia George. Built with passion and clean code.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/armia-roma" target="_blank" class="footer-social">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/armia-habib/" target="_blank" class="footer-social">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>
 
 		<!-- Modals -->
 		<!-- Add Pokemon Modal -->
