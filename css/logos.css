@@ -1,0 +1,78 @@
+/* ===== LOGOS SLIDER ===== */
+.logos,
+.logos-slider {
+    overflow: hidden;
+    padding: var(--spacing-2xl) 0;
+    white-space: nowrap;
+    position: relative;
+    background: var(--surface-color);
+}
+
+.logos::before,
+.logos::after,
+.logos-slider::before,
+.logos-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+}
+
+.logos::before,
+.logos-slider::before {
+    left: 0;
+    background: linear-gradient(to right, var(--surface-color), transparent);
+}
+
+.logos::after,
+.logos-slider::after {
+    right: 0;
+    background: linear-gradient(to left, var(--surface-color), transparent);
+}
+
+.logos-slide,
+.logos-track {
+    display: inline-block;
+    animation: slide 60s linear infinite;
+}
+
+.logos-slide:nth-child(2) {
+    animation-delay: -1s;
+}
+
+.logos-slide img,
+.logos-track img {
+    height: 50px;
+    margin: 0 var(--spacing-lg);
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.logos-slide img:hover,
+.logos-track img:hover {
+    opacity: 1;
+}
+
+@keyframes slide {
+    from { 
+        transform: translateX(0); 
+    }
+    to { 
+        transform: translateX(-100%); 
+    }
+}
+
+.logos:hover .logos-slide,
+.logos-slider:hover .logos-track {
+    animation-play-state: paused;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .logos-slide,
+    .logos-track {
+        animation: none;
+    }
+}

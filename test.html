@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .fail { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Website Test Results</h1>
+    <div id="test-results"></div>
+    
+    <script>
+        function runTests() {
+            const results = [];
+            
+            // Test 1: Check if CSS files are loaded
+            const stylesheets = Array.from(document.styleSheets);
+            const hasModularCSS = stylesheets.some(sheet => 
+                sheet.href && sheet.href.includes('main.css')
+            );
+            results.push({
+                name: 'Modular CSS Loading',
+                status: hasModularCSS ? 'pass' : 'fail',
+                message: hasModularCSS ? 'main.css is loaded correctly' : 'main.css not found'
+            });
+            
+            // Test 2: Check if fonts are loaded
+            const hasFonts = document.fonts.size > 0;
+            results.push({
+                name: 'Font Loading',
+                status: hasFonts ? 'pass' : 'fail',
+                message: hasFonts ? 'Fonts are loaded' : 'No fonts detected'
+            });
+            
+            // Test 3: Check responsive design
+            const hasViewportMeta = document.querySelector('meta[name="viewport"]');
+            results.push({
+                name: 'Responsive Design Meta',
+                status: hasViewportMeta ? 'pass' : 'fail',
+                message: hasViewportMeta ? 'Viewport meta tag is present' : 'Viewport meta tag missing'
+            });
+            
+            // Test 4: Check accessibility features
+            const hasAltTexts = document.querySelectorAll('img[alt]').length > 0;
+            results.push({
+                name: 'Image Accessibility',
+                status: hasAltTexts ? 'pass' : 'fail',
+                message: hasAltTexts ? 'Images have alt attributes' : 'Some images missing alt attributes'
+            });
+            
+            // Test 5: Check semantic HTML
+            const hasSemanticTags = ['nav', 'main', 'section', 'article', 'footer'].some(tag =>
+                document.querySelector(tag)
+            );
+            results.push({
+                name: 'Semantic HTML',
+                status: hasSemanticTags ? 'pass' : 'fail',
+                message: hasSemanticTags ? 'Semantic HTML tags are used' : 'Missing semantic HTML'
+            });
+            
+            // Test 6: Performance check
+            const imageCount = document.querySelectorAll('img').length;
+            results.push({
+                name: 'Image Optimization',
+                status: 'info',
+                message: `${imageCount} images found. Consider lazy loading for performance.`
+            });
+            
+            // Display results
+            const container = document.getElementById('test-results');
+            results.forEach(result => {
+                const div = document.createElement('div');
+                div.className = `test ${result.status}`;
+                div.innerHTML = `<strong>${result.name}:</strong> ${result.message}`;
+                container.appendChild(div);
+            });
+            
+            // Summary
+            const passed = results.filter(r => r.status === 'pass').length;
+            const failed = results.filter(r => r.status === 'fail').length;
+            const summary = document.createElement('div');
+            summary.className = 'test info';
+            summary.innerHTML = `<strong>Summary:</strong> ${passed} passed, ${failed} failed out of ${results.filter(r => r.status !== 'info').length} tests`;
+            container.appendChild(summary);
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
