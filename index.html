@@ -255,7 +255,7 @@
 				width: 100%;
 				max-width: 600px;
 				border-radius: 12px;
-				padding: 20px 100px;
+				padding: 20px;
 				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 				position: relative;
 				overflow-y: auto;
@@ -266,7 +266,7 @@
 			}
 			@media (max-width: 600px) {
 				.modal-content {
-					padding: 20px; /* or 15px if you prefer tighter space */
+					padding: 15px;
 				}
 			}
 			.close {
@@ -274,14 +274,25 @@
 				width: 30px;
 				height: 30px;
 				text-align: center;
-				background-color: silver;
-				color: #000000;
-				position: absolute;
-				right: 15px;
+				background-color: rgba(0, 0, 0, 0.7);
+				color: white;
+				position: sticky;
 				top: 10px;
+				right: 15px;
 				font-size: 20px;
 				cursor: pointer;
-				border-radius: 30px;
+				border-radius: 50%;
+				z-index: 1000;
+				margin-left: auto;
+				margin-bottom: 10px;
+				transition: background-color 0.2s ease;
+				border: 2px solid white;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+			}
+			
+			.close:hover {
+				background-color: rgba(220, 53, 69, 0.9);
+				transform: scale(1.1);
 			}
 			.modal-card-image {
 				width: 100%;
@@ -306,6 +317,13 @@
 			@media (max-width: 600px) {
 				.modal-card-image {
 					height: auto; /* Adjust height for smaller screens */
+					.close {
+						width: 28px;
+						height: 28px;
+						font-size: 18px;
+						top: 5px;
+						right: 5px;
+					}
 				}
 			}
 			.github-links {
@@ -578,7 +596,7 @@
 
 					<!-- Add project links if available -->
 					<a href="https://pokemon-puce-nu.vercel.app/" target="_blank" style="color: #007bff; text-decoration: none">
-						🔗 View Project
+						 View Project
 					</a>
 
 					<!-- Add project images -->
@@ -708,7 +726,7 @@
 						href="https://restaurant-two-orpin.vercel.app/categories"
 						target="_blank"
 						style="color: #007bff; text-decoration: none"
-						>🔗 View Project</a
+						> View Project</a
 					>
 					<!-- Project Image -->
 					<div>
@@ -1013,7 +1031,7 @@
 						href="https://gilded-unicorn-9d8a64.netlify.app/"
 						target="_blank"
 						style="color: #007bff; text-decoration: none"
-						>🔗 View Project</a
+						> View Project</a
 					>
 					<!-- Project Image -->
 					<div>
