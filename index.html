@@ -357,6 +357,9 @@
 				color: #023e8a;
 				text-decoration: underline;
 			}
+			body.modal-open {
+				overflow: hidden;
+			}
 		</style>
 	</head>
 	<body>
@@ -1139,11 +1142,22 @@
 				// Optional: You can add more inline styles here
 				modal.style.justifyContent = "center";
 				modal.style.alignItems = "center";
+				document.body.classList.add('modal-open');
 			}
+			// Update window click handle
+			window.onclick = function (e) {
+				if (e.target.classList.contains("modal")) {
+					e.target.style.display = "none";
+					// Restore body scroll when clicking backdrop
+					document.body.classList.remove('modal-open');
+				}
+			};
 
 			function closeModal(id) {
 				console.log("Closing modal with ID:", id);
 				document.getElementById(id).style.display = "none";
+				// Remove modal-open class when closing any modal
+    			document.body.classList.remove('modal-open');
 			}
 
 			window.onclick = function (e) {
@@ -1158,11 +1172,14 @@
 				modal.style.display = "flex";
 				modal.style.justifyContent = "center";
 				modal.style.alignItems = "center";
+				// Prevent body scroll
+    			document.body.classList.add('modal-open');
 			}
 
 			function closeImagePreview() {
 				document.getElementById("imagePreviewModal").style.display =
 					"none";
+				document.body.classList.remove('modal-open');
 			}
 		</script>
 	</body>
