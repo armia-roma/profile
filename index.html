@@ -425,6 +425,13 @@
 		<section>
 			<h2>Recent Work</h2>
 			<div class="projects">
+				<div class="card" onclick="openModal('pokemon-modal')">
+					<h3>Pokémon</h3>
+					<img src="pockemoncover.jpeg" alt="Pokémon Explorer App" class="porject-card-img" />
+					<p>
+						A NextJS application that lets users explore and discover Pokémon with detailed information, stats, and interactive features.
+					</p>
+				</div>
 				<div class="card" onclick="openModal('restaurant-modal')">
 					<h3>Restaurant</h3>
 					<img
@@ -544,6 +551,65 @@
 		</footer>
 
 		<!-- Modals -->
+		<!-- Add Pokemon Modal -->
+		<div id="pokemon-modal" class="modal">
+			<div class="modal-backdrop" onclick="closeModal('pokemon-modal')"></div>
+			<div class="modal-wrapper">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('pokemon-modal')">&times;</span>
+					
+					<h2>Pokémon Explorer</h2>
+					<p>
+						A modern NextJS application that allows users to browse through Pokémon data, 
+						view detailed information including stats, abilities, and evolutions. 
+						Features include search functionality, filtering by type, and responsive design 
+						for seamless experience across all devices.
+					</p>
+
+					<div class="skills">
+						<span class="skill">React</span>
+						<span class="skill">NextLJS</span>
+						<span class="skill">TypeScript</span>
+						<span class="skill">Pokemon API</span>
+						<span class="skill">TailwindCss </span>
+						<span class="skill">Chakra UI</span>
+						<span class="skill">Responsive Design</span>
+					</div>
+
+					<!-- Add project links if available -->
+					<a href="https://pokemon-puce-nu.vercel.app/" target="_blank" style="color: #007bff; text-decoration: none">
+						🔗 View Project
+					</a>
+
+					<!-- Add project images -->
+					<div>
+						<img
+							src="pockemoncover.jpeg"
+							alt="Pokemon Explorer Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="pockemondetails.png"
+							alt="Pokemon Explorer Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<div>
+						<img
+							src="pockemlist.jpeg"
+							alt="Pokemon Explorer Screenshot"
+							class="modal-card-image"
+							onclick="previewImage(this.src)"
+						/>
+					</div>
+					<!-- Add more Pokemon app screenshots if you have them -->
+				</div>
+			</div>
+		</div>
 		<div id="modal1" class="modal">
 			<div class="modal-backdrop" onclick="closeModal('modal1')"></div>
 			<div class="modal-wrapper">
