@@ -32,6 +32,151 @@
 				color: #333;
 				line-height: 1.6;
 			}
+			 body {
+        font-family: "Inter", "Poppins", Arial, sans-serif;
+        margin: 0;
+        background-color: #f8fafc;
+        color: #334155;
+        line-height: 1.7;
+    }
+    
+    header {
+        max-width: 800px;
+        margin: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto 12px;
+        font-weight: 400;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+        color: #94a3b8;
+        /* font-style: italic; */
+        font-weight: 300;
+    }
+    
+    .what-i-do {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    
+    .skills-intro {
+        font-size: 1.1rem;
+        color: #475569;
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+    }
+    
+    .skill-category {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .skill-category:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .category-icon {
+        width: 20px;
+        height: 20px;
+        color: #3b82f6;
+    }
+    
+    .category-description {
+        font-size: 0.95rem;
+        color: #64748b;
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
+    
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .tech-tag {
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        color: #475569;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid #cbd5e1;
+        transition: all 0.2s ease;
+    }
+    
+    .tech-tag:hover {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .skill-category {
+            padding: 20px;
+        }
+    }
 			header,
 			section {
 				max-width: 800px;
@@ -198,33 +343,85 @@
 	</head>
 	<body>
 		<header>
-			<h1>Hi, I'm Armia – Full Stack Developer</h1>
-			<p>
-				I build web and mobile apps that solve real problems. I love
-				learning new tech, fixing issues, and turning ideas into working
-				solutions.
-			</p>
-		</header>
+		<h1 class="hero-title">Hi, I'm Armia – Full Stack Developer</h1>
+		<p class="hero-subtitle">
+			I create modern web application that solve real business challenges with clean code, 
+			intuitive design, and scalable architecture.
+		</p>
+		<p class="hero-tagline">
+			Passionate about bridging design and functionality to build apps that users love and businesses trust.
+		</p>
+	</header>
 
-		<section>
-			<h2>What I Do</h2>
-			I work on both the frontend and backend. Some of my work includes:
-			<ul>
-				<li>Frontend and backend integration</li>
-				<li>Responsive design for all devices</li>
-				<li>Google Maps and third-party services</li>
-				<li>State management with Zustand and Vuex</li>
-				<li>Data fetching with React Query</li>
-				<li>REST API development</li>
-				<li>MongoDB and MySQL database work</li>
-				<li>Mobile apps with React Native</li>
-				<li>Reusable components</li>
-				<li>Version control with Git</li>
-				<li>Team collaboration</li>
-				<li>User experience and performance focus</li>
-			</ul>
-		</section>
-
+	<section class="what-i-do">
+		<h2 class="section-title">What I Do</h2>
+		<p class="skills-intro">
+			I specialize in end-to-end development, from concept to deployment, 
+			ensuring seamless user experiences and robust backend solutions.
+		</p>
+		
+		<div class="skills-grid">
+			<article class="skill-category">
+				<h3 class="category-title">
+					<svg class="category-icon" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+					</svg>
+					Frontend Development
+				</h3>
+				<p class="category-description">
+					Building responsive, interactive user interfaces with modern frameworks and smooth user experiences.
+				</p>
+				<div class="tech-tags">
+					<span class="tech-tag">React</span>
+					<span class="tech-tag">Vue.js</span>
+					<span class="tech-tag">React Native</span>
+					<span class="tech-tag">TypeScript</span>
+					<span class="tech-tag">Tailwind CSS</span>
+					<span class="tech-tag">Vuetify</span>
+				</div>
+			</article>
+			
+			<article class="skill-category">
+				<h3 class="category-title">
+					<svg class="category-icon" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3z"/>
+					</svg>
+					Backend & APIs
+				</h3>
+				<p class="category-description">
+					Developing scalable server-side solutions, REST APIs, and database architectures for reliable performance.
+				</p>
+				<div class="tech-tags">
+					<span class="tech-tag">Node.js</span>
+					<span class="tech-tag">Express.js</span>
+					<span class="tech-tag">Laravel</span>
+					<span class="tech-tag">MongoDB</span>
+					<span class="tech-tag">MySQL</span>
+					<span class="tech-tag">REST APIs</span>
+				</div>
+			</article>
+			
+			<article class="skill-category">
+				<h3 class="category-title">
+					<svg class="category-icon" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+					</svg>
+					Tools & Collaboration
+				</h3>
+				<p class="category-description">
+					Leveraging modern development tools and practices for efficient teamwork and code quality.
+				</p>
+				<div class="tech-tags">
+					<span class="tech-tag">Git & GitHub</span>
+					<span class="tech-tag">Zustand</span>
+					<span class="tech-tag">React Query</span>
+					<span class="tech-tag">Agile</span>
+					<span class="tech-tag">Performance Optimization</span>
+					<span class="tech-tag">Google Maps API</span>
+				</div>
+			</article>
+		</div>
+	</section>
 		<section>
 			<h2>Recent Work</h2>
 			<div class="projects">
