@@ -1,0 +1,140 @@
+/* ===== 3D HOVER EFFECTS ===== */
+
+/* Enable 3D transforms for cards */
+.card,
+.project-card,
+.contact-card,
+.skill-category {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all var(--transition-medium) ease-out;
+    position: relative;
+}
+
+/* 3D Hover Effect for Cards */
+.card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+/* Add subtle glow effect during hover */
+.card-3d:hover,
+.card.card-3d:hover,
+.project-card.card-3d:hover,
+.contact-card.card-3d:hover,
+.skill-category.card-3d:hover {
+    box-shadow: 
+        var(--shadow-medium),
+        0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+/* Enhance the image transform during 3D hover */
+.card-3d:hover .porject-card-img,
+.card-3d:hover .project-image {
+    transform: scale(1.05) translateZ(20px);
+}
+
+/* Add depth to content during hover */
+.card-3d .card-content,
+.card-3d .project-content,
+.card-3d .contact-info {
+    transition: transform var(--transition-medium);
+}
+
+.card-3d:hover .card-content,
+.card-3d:hover .project-content,
+.card-3d:hover .contact-info {
+    transform: translateZ(10px);
+}
+
+/* Smooth reset animation */
+.card-3d.resetting {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Optional: Add a subtle reflection effect */
+.card-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-3d:hover::before {
+    opacity: 1;
+}
+
+/* Ensure content stays above the reflection */
+.card-3d > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Performance optimizations */
+.card-3d {
+    backface-visibility: hidden;
+    transform-origin: center center;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .card-3d {
+        transform: none !important;
+        transition: box-shadow var(--transition-fast) !important;
+    }
+    
+    .card-3d:hover .porject-card-img,
+    .card-3d:hover .project-image {
+        transform: scale(1.02) !important;
+    }
+}
+
+/* Mobile optimization - reduce 3D effects on small screens */
+@media (max-width: 768px) {
+    .card-3d {
+        perspective: 500px;
+    }
+    
+    .card-3d:hover .porject-card-img,
+    .card-3d:hover .project-image {
+        transform: scale(1.03) translateZ(10px);
+    }
+    
+    .card-3d:hover .card-content,
+    .card-3d:hover .project-content,
+    .card-3d:hover .contact-info {
+        transform: translateZ(5px);
+    }
+}
+
+/* Very small screens - minimal 3D effects */
+@media (max-width: 480px) {
+    .card-3d {
+        perspective: 300px;
+    }
+    
+    .card-3d:hover .porject-card-img,
+    .card-3d:hover .project-image {
+        transform: scale(1.02);
+    }
+    
+    .card-3d:hover .card-content,
+    .card-3d:hover .project-content,
+    .card-3d:hover .contact-info {
+        transform: none;
+    }
+}
